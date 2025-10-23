@@ -1,0 +1,26 @@
+body {
+  background-color: linen;
+  font-family: 'Courier New', Courier, monospace;
+}
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+a {
+  text-decoration: none;
+  color: brown;
+}
+a:hover {
+  color: red;
+}
+img {
+  border: solid;
+  border-color: black;
+  border-radius: 20%;
+}
+table tr:nth-child(even) {
+  background-color: white;
+}
+ul {
+  list-style-type: lower-greek;
+}
