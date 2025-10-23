@@ -1,0 +1,250 @@
+/* -- Yleiset asetukset -- */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: black;
+  scroll-behavior: smooth;
+
+  background: linear-gradient(
+    45deg,
+    #002741,
+    #000000,
+    #00294b,
+    #0a3033,
+    #09435e
+  );
+  background-size: 1000% 1000%;
+  animation: goldAnimation 15s infinite ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgb(181, 32, 218);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h4 {
+  margin: auto;
+}
+
+p {
+  color: goldenrod;
+}
+
+i {
+  color: goldenrod;
+}
+
+section {
+  height: 100vh;
+  margin: 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* -- Yläpalkki -- */
+
+/* Navbar */
+.navbar {
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 80%;
+  z-index: 1000;
+  margin: 0 10%;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  background-color: #dcdcdc;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar nav ul img {
+  height: 69px;
+}
+
+.navbar nav ul li {
+  float: left;
+  height: 69px;
+}
+
+.navbar nav ul li a {
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 25px 50px;
+}
+
+.navbar nav ul li a:hover {
+  background-color: #f4efec;
+}
+
+.logo {
+  margin-right: auto;
+  height: 69px;
+}
+
+.logo a {
+  color: white !important;
+}
+
+/* -- Sisältö -- */
+
+/* Kotisivu */
+.home {
+  background: linear-gradient(
+    to bottom,
+    rgb(99, 98, 98),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.home p {
+  padding: 0 15%;
+}
+
+.home img {
+  width: 90%;
+  height: 30rem;
+  filter: grayscale(100%);
+  object-fit: cover;
+  border-radius: 5%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 25%,
+    black 75%,
+    transparent
+  );
+  animation: goldFilter 5s infinite ease-in-out;
+}
+
+/* Tuotteet */
+.container {
+  padding-top: 5%;
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+}
+
+.box {
+  background-color: #000000;
+  color: white;
+  padding: 3%;
+  text-align: center;
+  width: 30%;
+  text-align: left;
+}
+
+.boxC {
+  background-color: #000000;
+  color: white;
+  padding: 3%;
+  text-align: center;
+  width: 100%;
+  text-align: left;
+}
+
+.box i {
+  margin-right: 100%;
+}
+
+.box a {
+  display: block;
+  color: black;
+  background-color: #dcdcdc;
+  text-align: center;
+  text-decoration: none;
+  padding: 25px 50px;
+}
+
+.box a:hover {
+  background-color: goldenrod;
+}
+
+/* Container */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+}
+
+.flex-item a {
+  display: block;
+  color: black;
+  background-color: #dcdcdc;
+  text-align: center;
+  text-decoration: none;
+  padding: 25px 50px;
+}
+
+.flex-item a:hover {
+  background-color: goldenrod;
+}
+
+/* -- Animaatiot -- */
+@keyframes goldAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes goldFilter {
+  0% {
+    filter: grayscale(0%);
+  }
+  50% {
+    filter: grayscale(100%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
+}
