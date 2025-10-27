@@ -771,3 +771,22 @@ const restaurants = [
 ];
 
 // your code here
+var map = L.map('map').setView([60.1699, 24.9384], 10);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
+const restaurantsWithDistance = restaurants.map(restaurant => {
+  let marker = L.marker([
+    restaurant.location.coordinates[1],
+    restaurant.location.coordinates[0],
+  ]).addTo(map);
+  marker
+    .bindPopup(
+      '<h3>' + restaurant.name + '</h3><p>' + restaurant.address + '</p>'
+    )
+    .openPopup();
+});
