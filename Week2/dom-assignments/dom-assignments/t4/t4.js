@@ -771,3 +771,64 @@ const restaurants = [
 ];
 
 // your code here
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  alert('Geolocation is not supported by this browser.');
+}
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c;
+  return distance;
+}
+
+function success(position) {
+  const userLatitude = position.coords.latitude;
+  const userLongitude = position.coords.longitude;
+  console.log(userLatitude + ' and ' + userLongitude);
+
+  const restaurantsWithDistance = restaurants
+    .map(restaurant => {
+      const restaurantLat = restaurant.location.coordinates[1];
+      const restaurantLon = restaurant.location.coordinates[0];
+
+      const distance = calculateDistance(
+        userLatitude,
+        userLongitude,
+        restaurantLat,
+        restaurantLon
+      );
+
+      return {...restaurant, distance};
+    })
+    .sort((a, b) => a.distance - b.distance);
+
+  const table = document.querySelector('table');
+
+  restaurantsWithDistance.forEach(restaurant => {
+    table.insertAdjacentHTML(
+      'beforeend',
+      `
+            <tr>
+                <td>${restaurant.name}</td>
+                <td>${restaurant.address}</td>
+                <td>${restaurant.distance.toFixed(2)} km</td>
+            </tr>
+        `
+    );
+  });
+}
+
+function error() {
+  alert('Sorry, no position available.');
+}
