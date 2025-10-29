@@ -29,6 +29,7 @@ const todoList = [
 
 // add your code here
 const ulist = document.querySelector('ul');
+ulist.innerHTML = '';
 todoList.sort((a, b) => b.id - a.id);
 
 for (let i = 0; i < todoList.length; i++) {
