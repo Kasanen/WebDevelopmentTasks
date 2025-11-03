@@ -16,33 +16,45 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="data.js" defer></script>
+    <script src="functional.js" defer></script>
   </head>
 
   <body>
     <!--Yläpalkki-->
-    <header class="navbar">
-      <nav>
-        <ul>
-          <li><a href="index.html">JavaScriptModuulit</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="topnav">
+      <a href="#home" class="active">Opira</a>
+      <div id="myLinks">
+        <a href="#news">Ravintolat</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">Rekisteröidy</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="openBurger()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
 
     <!--Sisältö-->
 
     <!--Koti-->
     <section id="h" class="home">
       <div>
-        <h1>Web-sovelluskehitys</h1>
-        <p>Julkaisen tähän kaikki viikko 1 tehtävät, jotka olen tehnyt.</p>
+        <h1>Tervetuloa Opiran sivuille!</h1>
+        <p>Täältä näet suomen opiskelijaravintolat kätevästi</p>
         <div class="flex-container">
-          <div class="flex-item">
-            <h3>Conditional expressions and loops</h3>
-            <a href="Mod1/index.html">Klikkaa!</a>
-          </div>
-          <div class="flex-item">
-            <h3>Arrays and functions</h3>
-            <a href="Mod2/index.html">Klikkaa!</a>
+          <div class="flex-item" style="height: 400px; overflow: auto">
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+              </tr>
+              <!-- add restaurants here -->
+            </table>
+            <dialog></dialog>
           </div>
         </div>
       </div>
