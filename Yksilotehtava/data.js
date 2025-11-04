@@ -56,14 +56,12 @@ async function fetchRestaurants() {
     phone: r.phone,
     postalCode: r.postalCode,
   }));
+  sorting(restaurants);
   return restaurants;
 }
 
-async function main() {
-  const restaurants = await fetchRestaurants();
-
-  // sorting
-  restaurants.sort((a, b) => {
+function sorting(list) {
+  list.sort((a, b) => {
     const nameA = a.name.toUpperCase();
     const nameB = b.name.toUpperCase();
     if (nameA < nameB) {
@@ -74,6 +72,10 @@ async function main() {
     }
     return 0;
   });
+}
+
+async function main() {
+  const restaurants = await fetchRestaurants();
 
   // Printing out
   const table = document.querySelector('table');

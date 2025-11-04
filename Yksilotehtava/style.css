@@ -49,19 +49,13 @@ i {
 }
 
 section {
-  height: 97vh;
+  height: 95vh;
   margin: 0 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
-}
-
-td {
-  border-style: none none solid none;
-  border-color: white;
-  padding: 5% 0;
 }
 
 /* -- Yläpalkki -- */
@@ -217,6 +211,25 @@ td {
 
 .flex-item a:hover {
   background-color: goldenrod;
+}
+
+/* -- Dialog -- */
+td {
+  border-style: none none solid none;
+  border-color: white;
+  padding: 5% 0;
+}
+
+.table-top {
+  position: sticky;
+}
+
+ul li {
+  padding: 2% 0;
+}
+
+.highlight {
+  color: goldenrod;
 }
 
 /* -- Animaatiot -- */
