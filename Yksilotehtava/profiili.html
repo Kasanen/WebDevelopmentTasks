@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="Styling/style.css" />
+    <link rel="stylesheet" href="Styling/profiiliS.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap"
       rel="stylesheet"
@@ -22,21 +23,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-
     <!--Scripts-->
     <script src="data.js" defer></script>
     <script src="functional.js" defer></script>
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
   </head>
 
   <body>
@@ -44,9 +33,8 @@
     <div class="topnav">
       <a href="./index.html" class="active">Opira</a>
       <div id="myLinks">
-        <a href="#h">Ravintolat</a>
-        <a href="#m">Kartta</a>
-        <a id="loginBtn" onclick="openModal()">Kirjaudu</a>
+        <a href="./index.html?#h">Ravintolat</a>
+        <a href="./index.html?#m">Kartta</a>
       </div>
       <a href="javascript:void(0);" class="icon" onclick="openBurger()">
         <i class="fa fa-bars"></i>
@@ -58,56 +46,40 @@
     <!--Home-->
     <section id="h" class="home">
       <div>
-        <h1>Tervetuloa Opiran sivuille!</h1>
-        <p>Täältä näet suomen opiskelijaravintolat kätevästi</p>
-
-        <div class="dropdown">
-          <button class="dropbtn">Filtteröi</button>
-          <div class="dropdown-content">
-            <a onclick="main(1)">Nimellä</a>
-            <a onclick="main(2)">Etäisyydellä</a>
-            <a>Suosikit</a>
-            <p>-- Menu valinta --</p>
-            <a>Päivittäin</a>
-            <a>Viikottain</a>
-          </div>
-        </div>
+        <h1>Hei, Matti Meikäläinen!</h1>
+        <p>Asiakas profiili</p>
 
         <div class="flex-container">
-          <div class="flex-item" style="height: 400px; overflow: auto">
-            <table>
-              <!-- add restaurants here -->
-            </table>
-            <!-- Modal -->
-            <div id="Modal2" class="modal">
-              <!-- Modal content -->
-              <div id="modalText" class="modal-content"></div>
+          <div
+            class="flex-item"
+            style="height: 280px; overflow: auto; width: 100%"
+          >
+            <img src="./Photos/avatar.png" alt="Avatar" class="avatar" />
+            <h3>Käyttäjätunnus</h3>
+            <p>Matti Meikäläinen</p>
+            <h3>Salasana</h3>
+            <p>salakala</p>
+            <div class="dropdown">
+              <button class="dropbtn" onclick="openModal()">Muokkaa</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!--Destination button-->
-    <a href="#m"><button id="dest-Btn">⬇ Siirry alas ⬇</button></a>
-
-    <!--Map-->
-    <section id="m" class="home">
-      <div id="map"></div>
-    </section>
-
-    <!-- Login Modal -->
+    <!-- Modal -->
     <div id="Modal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <span class="closeModal" onclick="closeModal()">&times;</span>
-        <h2>Kirjaudu sisään!</h2>
+        <h2>Muokkaa tietoja</h2>
         <p>Tietosi ovat suojattu.</p>
         <form action="javascript:;" onsubmit=" checkAccount() ">
           <input id="ACC" type="text" placeholder="Käyttäjätunnus" />
           <input id="PASS" type="text" placeholder="Salasana" />
-          <input type="submit" value="Kirjaudu / Rekisteröidy" />
-          <a href="./profiili.html">Profiili sivu</a>
+          <p>Lisää profiilikuva</p>
+          <input type="file" accept="image/png, image/jpeg" />
+          <input type="submit" value="Muokkaa" />
         </form>
       </div>
     </div>
